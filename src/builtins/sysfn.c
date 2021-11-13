@@ -222,6 +222,12 @@ B  out_c1(B t, B x) {
   printRaw(x); putchar('\n');
   return x;
 }
+B  outRaw_c1(B t, B x) {
+  if (isArr(x) && rnk(x)>1) thrF("•OutRaw: Argument cannot have rank %i", rnk(x));
+  printRaw(x);
+  fflush(stdout);
+  return x;
+}
 B show_c1(B t, B x) {
   #if FORMATTER
     B fmt = bqn_fmt(inc(x));
@@ -675,6 +681,17 @@ B getLine_c1(B t, B x) {
   return r;
 }
 
+B getChar_c1(B t, B x) {
+  dec(x);
+  char c;
+  i64 bytes = read(STDIN_FILENO, &c, 1);
+  if (bytes<=0 || c == 0) {
+    return m_c32(0);
+  }
+  B r = fromUTF8(&c, 1);
+  return r;
+}
+
 B fromUtf8_c1(B t, B x) {
   if (!isArr(x)) thrM("•FromUTF8: Argument must be a character or number array");
   usz ia = a(x)->ia;
@@ -782,9 +799,11 @@ B sys_c1(B t, B x) {
   for (; i < a(x)->ia; i++) {
     B c = GetU(x,i);
     if (eqStr(c, U"out")) r.a[i] = incG(bi_out);
+    else if (eqStr(c, U"outraw")) r.a[i] = incG(bi_outRaw);
     else if (eqStr(c, U"show")) r.a[i] = incG(bi_show);
     else if (eqStr(c, U"exit")) r.a[i] = incG(bi_exit);
     else if (eqStr(c, U"getline")) r.a[i] = incG(bi_getLine);
+    else if (eqStr(c, U"getchar")) r.a[i] = incG(bi_getChar);
     else if (eqStr(c, U"file")) {
       if(!fileNS.u) {
         REQ_PATH;

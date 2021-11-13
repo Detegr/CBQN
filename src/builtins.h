@@ -9,7 +9,7 @@
 /* everything before the definition of •Type is defined to be pure, and everything after is not */ \
 /*   sysfn.c*/M(type,"•Type") M(decp,"•Decompose") M(primInd,"•PrimInd") M(glyph,"•Glyph") A(fill,"•FillFn") M(sys,"•getsys") A(grLen,"•GroupLen") D(grOrd,"•GroupOrd") \
 /*   sysfn.c*/M(repr,"•Repr") M(fmt,"•Fmt") A(asrt,"!") A(casrt,"!") M(out,"•Out") M(show,"•Show") A(bqn,"•BQN") A(sh,"•SH") M(fromUtf8,"•FromUTF8") \
-/*   sysfn.c*/D(cmp,"•Cmp") A(hash,"•Hash") M(unixTime,"•UnixTime") M(monoTime,"•MonoTime") M(delay,"•Delay") M(makeRand,"•MakeRand") M(reBQN,"•ReBQN") M(exit,"•Exit") M(getLine,"•GetLine") \
+/*   sysfn.c*/D(cmp,"•Cmp") A(hash,"•Hash") M(unixTime,"•UnixTime") M(monoTime,"•MonoTime") M(delay,"•Delay") M(makeRand,"•MakeRand") M(reBQN,"•ReBQN") M(exit,"•Exit") M(getLine,"•GetLine") M(getChar,"•GetChar") M(outRaw,"•OutRaw") \
 /*internal.c*/M(itype,"•internal.Type") M(elType,"•internal.ElType") M(refc,"•internal.Refc") M(isPure,"•internal.IsPure") A(info,"•internal.Info") \
 /*internal.c*/M(squeeze,"•internal.Squeeze") M(deepSqueeze,"•internal.DeepSqueeze") \
 /*internal.c*/D(variation,"•internal.Variation") A(listVariations,"•internal.ListVariations") M(clearRefs,"•internal.ClearRefs") M(unshare,"•internal.Unshare")
